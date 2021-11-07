@@ -15,7 +15,7 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 
-var serviceAccount = require("./doctors-portal-firebase-adminsdk.json");
+var serviceAccount = JSON.parse(process.env.FIREBASE_SERVICES_ACCOUNT);
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
